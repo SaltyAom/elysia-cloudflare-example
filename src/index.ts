@@ -21,11 +21,7 @@ export default new Elysia({
 			}
 		})
 	)
-	.get('/', ({ redirect }) => redirect('/'), {
-		detail: {
-			hide: true
-		}
-	})
+	.get('/', () => 'Elysia on Cloudflare Worker!')
 	.use(kv)
 	.use(r2)
 	.use(mirror)
