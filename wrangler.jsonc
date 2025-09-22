@@ -1,0 +1,30 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "elysia-cf",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-09-12",
+	"observability": {
+		"enabled": true
+	},
+	"assets": { "directory": "public" },
+	"placement": { "mode": "smart" },
+	"r2_buckets": [
+		{
+			"binding": "image",
+			"bucket_name": "elysia-test"
+		}
+	],
+	"kv_namespaces": [
+		{
+			"binding": "KV",
+			"id": "bf7079d7bb7b4b45b2ac9072d5f29e7f",
+
+			// Optional: preview_id used when running `wrangler dev` for local dev
+			"preview_id": "<ID_OF_PREVIEW_KV_NAMESPACE_FOR_LOCAL_DEVELOPMENT>"
+		}
+	]
+}
